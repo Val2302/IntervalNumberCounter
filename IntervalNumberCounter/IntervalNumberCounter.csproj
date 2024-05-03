@@ -12,6 +12,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,8 +34,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>IntervalNumberCounter.Src.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -43,11 +49,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Src\Contexts\MainMenuDbContext.cs" />
+    <Compile Include="Src\DbRepository\DbBuilder.cs" />
+    <Compile Include="Src\DbRepository\DbConnector.cs" />
+    <Compile Include="Src\DbRepository\Table.cs" />
+    <Compile Include="Src\Helper.cs" />
+    <Compile Include="Src\DbRepository\DataBase.cs" />
+    <Compile Include="Src\Menu\MainMenuBuilder.cs" />
+    <Compile Include="Src\Controllers\CounterStateConverter.cs" />
+    <Compile Include="Src\KeyItemIdConverter.cs" />
+    <Compile Include="Src\DbRepository\IEntity.cs" />
+    <Compile Include="Src\Models\Tables\EventTimeTable.cs" />
+    <Compile Include="Src\Models\TimeCalculations\Helper.cs" />
+    <Compile Include="Src\Models\TimeCalculations\StopTime\LastStopTimeCalculator .cs" />
+    <Compile Include="Src\Models\TimeCalculations\StopTime\FirstStopTimeCalculator.cs" />
+    <Compile Include="Src\Models\TimeCalculations\StopTime\StopPeriodDurationCalculator.cs" />
+    <Compile Include="Src\Models\TimeCalculations\WorkTime\LastWorkTimeCalculator .cs" />
+    <Compile Include="Src\Models\TimeCalculations\WorkTime\FirstWorkTimeCalculator.cs" />
+    <Compile Include="Src\Models\TimeCalculations\TimePeriod.cs" />
+    <Compile Include="Src\Models\Entities\NumberCounterBuilder.cs" />
+    <Compile Include="Src\Models\Entities\NumberCounter.cs" />
+    <Compile Include="Src\ConsoleOutput\LineShower.cs" />
+    <Compile Include="Src\Models\Entities\EventTime.cs" />
+    <Compile Include="Src\Models\Entities\EEventType.cs" />
+    <Compile Include="Src\ConsoleOutput\Helper.cs" />
+    <Compile Include="Src\ConsoleOutput\MessageShower.cs" />
+    <Compile Include="Src\Menu\Helper.cs" />
+    <Compile Include="Src\Menu\MainMenu.cs" />
+    <Compile Include="Src\Menu\MenuItem.cs" />
+    <Compile Include="Src\Controllers\MainMenuController.cs" />
+    <Compile Include="Src\Models\TimeCalculations\StopTime\StopTimeCalculator.cs" />
+    <Compile Include="Src\Models\TimeCalculations\WorkTime\WorkPeriodDurationCalculator.cs" />
+    <Compile Include="Src\Models\TimeCalculations\WorkTime\WorkTimeCalculator.cs" />
     <Compile Include="Src\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Src\Models\Tasks\CycleTask.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
 </Project>
